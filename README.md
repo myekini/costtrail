@@ -238,6 +238,19 @@ costtrail/
 
 ## Roadmap
 
+### Later releases
+
+v1 is the only scope that counts until it ships. After it:
+
+| Release | Adds |
+|---|---|
+| **v2 Ask CostTrail** | A semantic layer of cost metrics exposed as tools (`get_cost`, `compare_periods`, `allocation_trace`, `tag_coverage`, `top_movers`, `explain_variance`). A FinOps analyst agent that answers questions like "why did the data team's cost rise in September?" through those tools only, and cites the source rows. The same tools served as an **MCP server**, so any MCP-capable assistant can query the cost model. Scored on 40 to 60 questions with known answers, including ones it should refuse |
+| **v3 Watch & fix** | A daily anomaly watch (deterministic statistics) with agent-written investigation notes, and a tag-fix proposer: it suggests an owner for untagged spend, a human approves, and the change is written only to CostTrail's own allocation mapping, never to the cloud account |
+
+The agent never writes SQL against raw tables, stays read-only until v3, has every figure checked against its tool results, and treats tags and resource names as untrusted text.
+
+### v1
+
 - [x] Repository, CI, design
 - [ ] Synthetic generator with planted faults and ground truth
 - [ ] Staging, billed and amortized views
